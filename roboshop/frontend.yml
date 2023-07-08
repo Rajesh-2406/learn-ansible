@@ -8,7 +8,7 @@
         state: latest
 
     - name: Remove directory
-      ansible.built.in.file:
+      ansible.builtin.file:
          path: /usr/share/ngnix/html
          state: directory
 
