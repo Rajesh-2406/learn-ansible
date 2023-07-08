@@ -7,23 +7,3 @@
         name: ngnix
         state: latest
 
-    - name: Remove directory
-      ansible.builtin.file:
-         path: /usr/share/ngnix/html
-         state: directory
-
-    - name: Create directory
-      ansible.builtin.file:
-        path: /usr/share/ngnix/html
-        state: directory
-
-    - name: Download and extract frontend content
-      ansible.builtin.unarchive:
-        src:
-        dest: /usr/share/nginx/html
-        remote_src: yes
-
-    - name: Copy roboshop configuration
-      ansible.builtin.copy:
-        src: /srv/myfiles/foo.conf
-        dest: /etc/foo.conf
