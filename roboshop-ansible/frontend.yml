@@ -8,7 +8,7 @@
          state: latest
 
     - name: Remove directory
-      Ansible.builtin.file:
+      ansible.builtin.file:
           Path: /usr/share/nginx/html
           State: absent
 
