@@ -12,7 +12,6 @@
            Name: mongodb-org
            State: latest
 
-
     - name: Update MongoDB listen Address
       Ansible.builtin.replace:
          Path: /etc/mongod.conf
