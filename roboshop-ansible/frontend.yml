@@ -12,25 +12,5 @@
           Path: /urs/share/nginx/html
           State: absent
 
-    - name: Create directory
-      ansible.builtin.file:
-            path: /urs/share/nginx/html
-            state: directory
 
-
-    - name: Download and extract frontend content
-      Ansible.builtin.file:
-           Src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
-           Dest: /urs/share/nginx/html
-           Remote_src: yes
-
-    - name: Copy roboshop configuration
-      Ansible.builtin.file:
-            Src: roboshop.conf
-            Dest: /etc/nginx/default.d/roboshop.conf
-
-    - name: Start nginx Service
-      Ansible.builtin.syatemd:
-            State: restarted
-            Enabled: yes
 
