@@ -17,5 +17,21 @@
         path: /usr/share/nginx/html
         state: directory
 
+    - name: Download and extract frontend content
+      ansible.builtin.unarchive:
+         src:
+         dest: /usr/share/nginx/html
+         remote_src: yes
+
+    - name: Copy roboshop configuration
+      ansible.builtin.copy:
+        src: roboshop.conf
+        dest: /etc/nginx/default.d/roboshop.conf
+
+    - name: Start nginx service
+      ansible.builtin.syatemd:
+         state: restarted
+         name: nginx
+         enabled: true
 
 
