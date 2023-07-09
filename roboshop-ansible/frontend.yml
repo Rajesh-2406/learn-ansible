@@ -6,10 +6,16 @@
       ansible.builtin.yum:
         name: nginx
         state: latest
-    - name: remove directory
+
+    - name: Remove directory
       Ansible.builtin.file:
           Path: /usr/share/nginx/html
           State: absent
+
+    - name: Create directory
+      ansible.builtin.file:
+         path: /usr/share/nginx/html
+         state: directory
 
 
 
