@@ -9,7 +9,7 @@
 
     - name: Remove directory
       ansible.builtin.file:
-        Path: /usr/share/nginx/html
+        path: /usr/share/nginx/html
         State: absent
 
     - name: Create directory
