@@ -3,24 +3,24 @@
    Become: yes
    Tasks:
     - name: Copy mongoDB Repo file
-      Ansible.builtin.copy:
-          Src: mongodb.repo
-          Dest: /etc/yum.repo.d/mongodb.repo
+      ansible.builtin.copy:
+          src: mongodb.repo
+          dest: /etc/yum.repo.d/mongodb.repo
 
     - name: Install mongoDB
-      Ansible.builtin.yum:
-           Name: mongodb-org
-           State: latest
+      ansible.builtin.yum:
+           name: mongodb-org
+           state: latest
 
     - name: Update MongoDB listen Address
-      Ansible.builtin.replace:
-         Path: /etc/mongod.conf
-         Regexp: ‘127.0.0.1’
-         Replace: ‘0.0.0.0’
+      ansible.builtin.replace:
+         path: /etc/mongod.conf
+         regexp: ‘127.0.0.1’
+         replace: ‘0.0.0.0’
 
 
     - name: Start MongoDB Service
-      Ansible.builtin.systemd:
-           State: restarted
-           Name: mongod
-           Enabled: yes
+      ansible.builtin.systemd:
+           state: restarted
+           name: mongod
+           enabled: yes
